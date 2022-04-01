@@ -1,11 +1,18 @@
 <p>list-users works!</p>
 <table class="table tamble-sm">
-    <td *ngFor="let user of userService.listOfUsers">
+    <tr *ngFor="let user of userService.list">
 
-        <td>{{user.Name }}</td>
-        <td>{{user.LastName }}</td>
-        <td>{{user.Email }}</td>
-        <td>{{user.Password }}</td>
-        <td>{{user.BirthDay }}</td>
-    </td>
+        <td>{{user.idUser  }} </td>
+        <td>{{user.name }}</td>
+        <td>{{user.lastName }}</td>
+        <td>{{user.email }}</td>
+        <td>{{user.password }}</td>
+        <td>{{user.birthDay }}6</td>
+        <td>
+            <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i>
+        </td>
+        <td>
+            <i class="far fa-trash-alt fa-lg text-danger" style="cursor:pointer;"></i>
+        </td>
+    </tr>
 </table>

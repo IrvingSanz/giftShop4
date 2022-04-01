@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../Models/User';
 
 @Injectable({
@@ -9,18 +9,25 @@ import { User } from '../Models/User';
 export class UserService {
   myAppUrl = 'https://localhost:44365/';
   myApiUrl = 'api/user/PostUsers';
-  list: listOfUsers[];
+  myApiGetUrl ='api/user';
+  list: any;
 
   constructor(private http: HttpClient) { }
+
   SaveUser(user: User ) : Observable<User>{
    return this.http.post<User>(this.myAppUrl + this.myApiUrl, user);
   }
 
-  getUsers(){
-    this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
-    .then(data => {
-      this.list = data as listOfUsers[];
+    getUsers() : <any>{
+      debugger
+    try {
+      this.http.get(this.myAppUrl + this.myApiGetUrl).
+      subscribe((data: any) => { debugger
+      return data;
     });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 }
