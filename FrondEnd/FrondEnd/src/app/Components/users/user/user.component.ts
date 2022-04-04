@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { User } from 'src/app/Models/User';
 import { UserService } from 'src/app/Services/user.service';
 @Component({
@@ -8,9 +9,15 @@ import { UserService } from 'src/app/Services/user.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private toastr: ToastrService) {
+  suscription : Subscription;
+  user: User ;
+  idUser =0;
+  constructor(private formBuilder: FormBuilder, 
+              private userService: UserService, 
+              private toastr: ToastrService) {
+
     this.form = this.formBuilder.group({
       IdUser:0,
       Name: ['', [Validators.required, Validators.minLength(1)]],
@@ -22,6 +29,20 @@ export class UserComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.suscription =  this.userService.getUser$().subscribe(data =>{
+      console.log(data);
+      this.user = data;
+      this.form.patchValue({
+        Name: this.user.Name,
+        LastName: this.user.LastName,
+        Email: this.user.Email,
+        Password: this.user.Password,
+        BirthDay: this.user.BirthDay        
+      });
+    });
+  }
+  ngOnDestroy(){
+    this.suscription.unsubscribe();      
   }
   SaveUser(){
     const user: User = {

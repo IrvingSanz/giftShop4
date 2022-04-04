@@ -9,10 +9,10 @@
         <td>{{user.password }}</td>
         <td>{{user.birthDay }}6</td>
         <td>
-            <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i>
+            <i class="far fa-edit fa-lg text-info" (click)="editUserMethod(user)" style="cursor: pointer;"></i>
         </td>
         <td>
-            <i class="far fa-trash-alt fa-lg text-danger" style="cursor:pointer;"></i>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="deleteUserMethod(user.idUser)" style="cursor:pointer;"></i>
         </td>
     </tr>
 </table>

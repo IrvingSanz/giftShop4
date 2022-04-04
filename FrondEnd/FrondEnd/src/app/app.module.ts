@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,6 @@ import { HeaderComponent } from './Components/header/header.component';
 import { UserComponent } from './Components/users/user/user.component';
 import { importExpr } from '@angular/compiler/src/output/output_ast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from "ngx-toastr";
 
 
 @NgModule({
