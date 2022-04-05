@@ -1,6 +1,6 @@
 export class User{
 
-    IdUser?: bigint;
+    IdUser?: number | any;
     Name:string| undefined;
     LastName: string | undefined;
     Email: String| undefined;

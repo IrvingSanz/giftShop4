@@ -17,10 +17,11 @@ export class ListUsersComponent implements OnInit {
 
 
   ngOnInit(): void {
-  this.userService.getUsers();
-  console.log(this.userService.getUsers());
+   this.userService.getUsers();
+   console.log(this.userService.getUsers());
+
   }
-  deleteUserMethod(IdUser:bigint){
+  deleteUserMethod(IdUser:number){
     if(confirm('Are you sure you wanna delete this user?')){
       this.userService.deleteUser(IdUser).subscribe(data =>{
         this.toast.warning('deleted register','The user was deleted');
@@ -30,5 +31,8 @@ export class ListUsersComponent implements OnInit {
   }
   editUserMethod(user: User){
     this.userService.updateUser(user);
+  }
+  editar(user: User ){
+    this.userService.actualizar(user);
   }
 }

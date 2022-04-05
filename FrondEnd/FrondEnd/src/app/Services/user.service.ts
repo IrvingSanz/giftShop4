@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { User } from '../Models/User';
 
 @Injectable({
@@ -31,8 +32,8 @@ export class UserService {
   //     console.log(error);
   //   }
   // }
-  deleteUser(IdUser: bigint):  Observable<User>{
-    return this.http.delete<User>(this.myAppUrl + this.myApiGetUrl + IdUser); 
+  deleteUser(idUser: number):  Observable<User>{
+    return this.http.delete<User>(this.myAppUrl + this.myApiGetUrl + idUser); 
 
   }
 
@@ -44,15 +45,26 @@ export class UserService {
                     });
   }
 
-  UpdateUserFeed(idUser:bigint, user: User):Observable<User>{
+  UpdateUserFeed(idUser:number, user: User):Observable<User>{
     return this.http.put<User>(this.myAppUrl + this.myApiGetUrl + idUser,user );
     this.UpdateUser.next(user);
   }
 
   updateUser(user:User){
-    this.UpdateUser.next(user);
+    this.UpdateUser.next(user); 
   }
   getUser$(): Observable<User>{
+    return this.UpdateUser.asObservable();
+  }
+
+  actualizarUsuario(idUser: any, user: User): Observable<User>{
+      return this.http.put<User>(this.myAppUrl + this.myApiUrl + idUser, user);
+  }
+
+  actualizar (user : User){
+    this.UpdateUser.next(user);
+  }
+  obtenerUsuarios$(): Observable<User>{
     return this.UpdateUser.asObservable();
   }
 }
