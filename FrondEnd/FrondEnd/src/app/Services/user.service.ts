@@ -11,7 +11,7 @@ export class UserService {
   myAppUrl = 'https://localhost:44365/';
   myApiUrl = 'api/user/PostUsers';
   myApiGetUrl ='api/user/';
-  list: any;
+  list: User[] = [];
  
   private UpdateUser = new BehaviorSubject<User>({} as any);
 
@@ -42,6 +42,8 @@ export class UserService {
                     .subscribe(
                       data => {
                        this.list = data as User[];
+                       console.log('Hola', this.list);
+
                     });
   }
 
@@ -56,7 +58,7 @@ export class UserService {
   getUser$(): Observable<User>{
     return this.UpdateUser.asObservable();
   }
-
+//ejemplo
   actualizarUsuario(idUser: any, user: User): Observable<User>{
       return this.http.put<User>(this.myAppUrl + this.myApiUrl + idUser, user);
   }

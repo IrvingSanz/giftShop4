@@ -10,8 +10,8 @@ using giftShop4;
 namespace giftShop4.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20220330170914_migration test")]
-    partial class migrationtest
+    [Migration("20220405211912_UsersMigration")]
+    partial class UsersMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

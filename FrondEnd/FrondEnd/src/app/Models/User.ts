@@ -1,9 +1,10 @@
 export class User{
 
-    IdUser?: number | any;
-    Name:string| undefined;
-    LastName: string | undefined;
-    Email: String| undefined;
-    Password: string| undefined;
-    BirthDay: Date| undefined;
+    idUser?: number | any;
+    name:string| undefined;
+    lastName: string | undefined;
+    email: string| undefined;
+    password: string| undefined;
+    birthDay:  string|undefined;
+    birthDayString: string;
 };

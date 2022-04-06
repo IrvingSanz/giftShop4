@@ -20,11 +20,11 @@ export class UserComponent implements OnInit, OnDestroy {
 
     this.form = this.formBuilder.group({
       idUser:0,
-      Name: ['', [Validators.required, Validators.minLength(1)]],
-      LastName: ['', [Validators.required, Validators.minLength(1)]],
-      Email:['', [Validators.required, Validators.email]],
-      Password:['', [Validators.required, Validators.minLength(6)]],
-      BirthDay:['', [Validators.required]]
+      name: ['', [Validators.required, Validators.minLength(1)]],
+      lastName: ['', [Validators.required, Validators.minLength(1)]],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required, Validators.minLength(6)]],
+      birthDay:['', [Validators.required]]
     })
    }
 
@@ -41,52 +41,72 @@ export class UserComponent implements OnInit, OnDestroy {
     //   });
     // });
     this.suscription = this.userService.obtenerUsuarios$().subscribe(data =>{
-      console.log(data);
       this.user = data;
+      console.log("", this.user.name);
+      this.form.controls['name'].setValue(data['name']);
       this.form.patchValue({
-        Name: this.user.Name,
-        LastName: this.user.LastName,
-        Email: this.user.Email,
-        Password: this.user.Password,
-        BirthDay: this.user.BirthDay        
+        name: this.user.name,
+        lastName: this.user.lastName,
+        email: this.user.email,
+        password: this.user.password,
+        birthDay: this.user.birthDay        
       });
-      this.idUser = this.user.IdUser;
+      this.idUser = this.user.idUser;
     });
   }
   ngOnDestroy(){
     this.suscription.unsubscribe();      
   }
+  // SaveUser(){
+  //   if(this.idUser = 0){
+  //     this.agregar();
+  //   }else{
+  //     this.editar();
+  //   }
+  // }
   SaveUser(){
-    if(this.idUser === 0){
-      this.agregar();
-    }else{
-      this.editar();
-    }
-
-  }
-  agregar(){
     const user: User = {
-      Name: this.form.get('Name')?.value,
-      LastName: this.form.get('LastName')?.value,
-      Email: this.form.get('Email')?.value,
-      Password: this.form.get('Password')?.value,
-      BirthDay: this.form.get('BirthDay')?.value
-    };
+      name: this.form.get('name')?.value,
+      lastName: this.form.get('lastName')?.value,
+      email: this.form.get('email')?.value,
+      password: this.form.get('password')?.value,
+      birthDay: this.form.get('birthDay')?.value,
+      birthDayString: this.form.get('birthDayString')?.value
+    }
     this.userService.SaveUser(user).subscribe(data => {
       this.toastr.success('Successfull registration','user registred');
       console.log('seve successful');
+      // /this.form.reset();
+      this.userService.getUsers();
+
+    })
+  }
+
+  agregar(){
+    const user: User = {
+      name: this.form.get('name')?.value,
+      lastName: this.form.get('lastName')?.value,
+      email: this.form.get('email')?.value,
+      password: this.form.get('password')?.value,
+      birthDay: this.form.get('birthDay')?.value,
+      birthDayString: this.form.get('birthDayString')?.value
+    };
+    this.userService.SaveUser(user).subscribe(data => {
+      this.toastr.success('Successfull registration','user registred');
+      console.log('seved successful');
       this.form.reset();
     });
   }
 
   editar(){
     const user: User = {
-      IdUser: this.user.IdUser,
-      Name: this.form.get('Name')?.value,
-      LastName: this.form.get('LastName')?.value,
-      Email: this.form.get('Email')?.value,
-      Password: this.form.get('Password')?.value,
-      BirthDay: this.form.get('BirthDay')?.value
+      idUser: this.user.idUser,
+      name: this.form.get('name')?.value,
+      lastName: this.form.get('lastName')?.value,
+      email: this.form.get('email')?.value,
+      password: this.form.get('password')?.value,
+      birthDay: this.form.get('birthDay')?.value,
+      birthDayString: this.form.get('birthDayString')?.value
     };
     this.userService.actualizarUsuario(this.idUser, user).subscribe(data =>{
       this.toastr.info('actualizado registration','user was actualizada');

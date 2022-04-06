@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace giftShop4.Migrations
 {
-    public partial class migrationtest : Migration
+    public partial class UsersMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

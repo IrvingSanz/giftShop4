@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,5 +25,7 @@ namespace giftShop4.Models
         public string Password { get; set; }
         [Required]
         public DateTime BirthDay { get; set; }
+        [NotMapped]
+        public string BirthDayString { get; set; }
     }
 }

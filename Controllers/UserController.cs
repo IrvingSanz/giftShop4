@@ -28,7 +28,10 @@ namespace giftShop4.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            var userList = await _context.Users.ToListAsync();
+            userList.ForEach(x => x.BirthDayString = x.BirthDay.ToString("dd/MM/yyyy"));
+            return Ok(userList);
+            
         }
 
         // GET: api/User/5
