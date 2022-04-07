@@ -12,6 +12,11 @@ import { HeaderComponent } from './Components/header/header.component';
 import { UserComponent } from './Components/users/user/user.component';
 import { importExpr } from '@angular/compiler/src/output/output_ast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './Components/login/login.component';
+import { AddProductsComponent } from './views/add-products/add-products.component';
+import { AboutComponent } from './views/about/about.component';
+import { ProductsComponent } from './views/products/products.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 
 @NgModule({
@@ -21,7 +26,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListUsersComponent,
     FooterComponent,
     HeaderComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    AddProductsComponent,
+    AboutComponent,
+    ProductsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
