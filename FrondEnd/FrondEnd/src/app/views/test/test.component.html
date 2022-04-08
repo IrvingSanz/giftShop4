@@ -2,17 +2,25 @@
 <p>test works!</p>
 <div class="container" id="bgCustom" style=" box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
     <div class="row">
-      <div class="col-sm-2">col-sm-4
-        <ul class=" list-group list-group-flush">
-            <li class="list-group-item">user.idUser</li>
-            <li class="list-group-item">user.name</li>
-            <li class="list-group-item">        user.lastName</li>
-            <li class="list-group-item">User.email</li>
-            <li class="list-group-item">user.birthDayStrign</li>
+      <div class="col-sm-2">
+        <div >
+            
+        <span class="border">
+            <img src="../../../assets/img/usuario.png" alt="" id="imgUser">
+        </span>
+        [emailUser]
+        </div>
+
+        <ul class=" list-group list-group-flush" >
+            <li class="list-group-item" style="background-color: #ddeae6;">user.idUser</li>
+            <li class="list-group-item" style="background-color: #ddeae6;">user.name</li>
+            <li class="list-group-item"style="background-color: #ddeae6;"> user.lastName</li>
+            <li class="list-group-item"style="background-color: #ddeae6;">User.email</li>
+            <li class="list-group-item"style="background-color: #ddeae6;">user.birthDayStrign</li>
           </ul>
       </div>
 
-      <div class="col-sm-10">col-sm-8
+      <div class="col-sm-8">col-sm-8
         <div class="container w-5000 pl-5" id="cuadro">
             <h2 class="text-center">Login</h2>
         <form>
@@ -39,36 +47,78 @@
                         <td>Mark</td>
                     </tr>
                     <br>
-                    <button type="submit" class="btn btn-primary" ng-click="ShowForm()" ng-hide="formVisibility">Edit Information</button>
+                    <!-- formVisibility -->
+                    <a type="submit" class="btn btn-primary" (click)="formVisibility()" > {{StatusButtom}}</a>
               </table>
 
           </form>
-          <div class="container" id="enbededForm">
-    
-            <form class="row g-3"  >
-                <div class="row g-6">
-                    <div class="col-md-6">
+          
+          <div  class="container " id="enbededForm" *ngIf="showForm">
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+                <div class="row">
+                    <div class="col-6">.col-6
+                        <div>
+                            <label for="inputEmail4" class="form-label">Name(s)</label>
+                        <input formControlName="name" type="text" minlength="1" class="form-control" aria-label="First name" name="name">
+                        </div>
+                        <div >
+                            <label  class="form-label">Birthday</label>
+                            <input type="date" formControlName ="birthDay" class="form-control"  name="birthDay">
+                        </div>
+                        <div >
+                            <label for="inputEmail4" class="form-label">Password </label>
+                            <div class="input-group">
+                                <span class="input-group-text col-md-2" id="basic-addon1"><i class="fas fa-key"></i>  </span>
+                                <div class="col-md-10">
+                                    <input type="password" formControlName ="password" name="password" minlength="6" maxlength="20" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>         
+                        </div>     
+                    </div>
+
+                    <div class="col-6">.col-6
+                        <div >
+                            <label for="inputEmail4" class="form-label">Last Name</label>
+                        <input type="text" formControlName="lastName" minlength="1" class="form-control" aria-label="Last name" name="lastName">
+                        </div>
+                        <div >
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <div class="input-group ">
+                                <span class="input-group-text col-2" >
+                                    <i class="fa-solid fa-envelope"></i>  
+                                </span>
+                            <div class="col-10">
+                                <input type="email" formControlName="email" class="form-control"id="inputEmail4" name="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            </div>   
+                        </div>
+                    </div>
+                    
+                </div>
+             <!-- <form class="" >
+                <div class="row ">
+                    <div class="col-6">
                         <label for="inputEmail4" class="form-label">Name(s)</label>
                     <input formControlName="name" type="text" minlength="1" class="form-control" aria-label="First name" name="name">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <label for="inputEmail4" class="form-label">Last Name</label>
                     <input type="text" formControlName="lastName" minlength="1" class="form-control" aria-label="Last name" name="lastName">
                     </div>
-                    <div class="col-md-7">
+                   <div class="col-md-7">
                         <label for="inputEmail4" class="form-label">Birthday</label>
                         <input type="date" formControlName ="birthDay" class="form-control" id="inputEmail4" name="birthDay">
                     </div>
-            <br>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <div class="input-group">
-                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i>  </span>
-                <div class="col-md-10">
-                    <input type="email" formControlName="email" class="form-control"id="inputEmail4" name="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                </div>   
-            </div>
+                    <br>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i>  </span>
+                        <div class="col-md-10">
+                            <input type="email" formControlName="email" class="form-control"id="inputEmail4" name="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        </div>   
+                    </div>
         
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Password </label>
@@ -83,11 +133,11 @@
             <div class="col-12">
                 <br>
             <button type="submit" value="Login"  class="btn btn-primary"> <i class="fas fa-database"></i> Enviar</button>
-            </div>
+            </div> 
             </div>
         
     
-          </form>
+          </form>-->
         </div>  
       </div>
     </div>

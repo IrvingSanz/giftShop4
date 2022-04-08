@@ -11,7 +11,7 @@ import { TestComponent } from './views/test/test.component';
 
 const routes: Routes = [
   // {path:'', component:ProductsComponent },
-  {path:'', component:ProductsComponent},
+  // {path:'', component:ProductsComponent},
   {path:'products', component:ProductsComponent},
   {path:'register', component:UserComponent},
   {path:'profile', component:ProfileComponent},
