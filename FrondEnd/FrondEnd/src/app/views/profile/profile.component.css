@@ -1,0 +1,97 @@
+.wrapper {
+    clear: both;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1404px;
+    width: 100%;
+}
+.theme-white, [class*=theme-] .theme-white {
+    background-color: #fff;
+    color: #26282d;
+}
+.card--wrapper:first-child {
+    margin-top: 0;
+}
+.card {
+    padding: 3rem 4.5rem;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+    margin-bottom: .75rem;
+    margin-left: -.75rem;
+    margin-right: -.75rem;
+}
+.transition-bg-color, [class*=theme-] {
+    transition: color .25s cubic-bezier(.4,0,1,1),background-color .25s cubic-bezier(.4,0,1,1);
+}
+.theme-grey-light, [class*=theme-] .theme-grey-light {
+    background-color: #f4f4f4;
+    color: #26282d;
+}
+.content-wrapper, .card--root {
+    padding-right: 5.25rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+}
+.content-wrapper .card--root {
+    padding-right: 5.25rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+}
+.card--wrapper:first-child {
+    margin-top: 0;
+}
+.card:first-child {
+    margin-top: -.75rem;
+}
+.theme-white, [class*=theme-] .theme-white {
+    background-color: #fff;
+    color: #26282d;
+}
+.card--disable, .card--disable-shadow {
+    box-shadow: none;
+}
+.card--wrapper {
+    border-radius: 10px;
+}
+/* 
+@media (min-width: 576px) */
+.card {
+    border-radius: 8px;
+}
+.card {
+    padding: 3rem 4.5rem;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+    margin-bottom: .75rem;
+    margin-left: -.75rem;
+    margin-right: -.75rem;
+}
+.margin-bottom-2 {
+    margin-bottom: 3rem!important;
+}
+.transition-bg-color, [class*=theme-] {
+    transition: color .25s cubic-bezier(.4,0,1,1),background-color .25s cubic-bezier(.4,0,1,1);
+}
+div {
+    display: block;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -.75rem;
+    margin-right: -.75rem;
+}
+.margin-top-lg-min-1 {
+    margin-top: 1.5rem!important;
+}
+.card--disable, .card--disable-shadow {
+    box-shadow: none;
+}
+.col-4 {
+    clear: both;
+}

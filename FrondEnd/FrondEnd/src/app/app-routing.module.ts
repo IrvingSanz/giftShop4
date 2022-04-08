@@ -7,6 +7,7 @@ import { UserComponent } from './Components/users/user/user.component';
 import { AboutComponent } from './views/about/about.component';
 import { ProductsComponent } from './views/products/products.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { TestComponent } from './views/test/test.component';
 
 const routes: Routes = [
   // {path:'', component:ProductsComponent },
@@ -16,8 +17,11 @@ const routes: Routes = [
   {path:'profile', component:ProfileComponent},
   {path:'about', component:AboutComponent},
   {path:'listOfUsers', component:ListUsersComponent}, 
-  {path:'login', component:LoginComponent },
+  {path:'login', component:LoginComponent },  
+  {path:'hotSales', component:TestComponent },
+
   {path: '**', pathMatch:'full', redirectTo: '#'}
+  
 
 ];
 

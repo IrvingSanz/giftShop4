@@ -17,6 +17,7 @@ import { AddProductsComponent } from './views/add-products/add-products.componen
 import { AboutComponent } from './views/about/about.component';
 import { ProductsComponent } from './views/products/products.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { TestComponent } from './views/test/test.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ProfileComponent } from './views/profile/profile.component';
     AddProductsComponent,
     AboutComponent,
     ProductsComponent,
-    ProfileComponent
+    ProfileComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

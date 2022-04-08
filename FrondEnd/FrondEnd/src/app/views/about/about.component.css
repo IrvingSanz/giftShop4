@@ -1,0 +1,15 @@
+#cuadro{
+    background-color: #e7e7e7;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    z-index: 10;
+    padding: 50px;
+    width: 1000px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#cuadroMin{
+    background-color: #ddeae6;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
