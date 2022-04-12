@@ -11,14 +11,14 @@ import { TestComponent } from './views/test/test.component';
 
 const routes: Routes = [
   // {path:'', component:ProductsComponent },
-  // {path:'', component:ProductsComponent},
+  {path:'', component:ProductsComponent},
   {path:'products', component:ProductsComponent},
   {path:'register', component:UserComponent},
   {path:'profile', component:ProfileComponent},
   {path:'about', component:AboutComponent},
   {path:'listOfUsers', component:ListUsersComponent}, 
   {path:'login', component:LoginComponent },  
-  {path:'hotSales', component:TestComponent },
+  {path:'test', component:TestComponent },
 
   {path: '**', pathMatch:'full', redirectTo: '#'}
   
