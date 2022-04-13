@@ -11,16 +11,5 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  showForm: Boolean = true;
-  StatusButtom: string = 'Edit';
 
-  formVisibility(){
-    if(this.showForm){
-      this.showForm= false;
-      this.StatusButtom='Edit';
-    }else{
-      this.showForm= true;
-      this.StatusButtom='Save';
-    }
-  }
 }
