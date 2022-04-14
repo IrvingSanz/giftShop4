@@ -8,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   constructor() { }
-
+  
   ngOnInit(): void {
   }
+  showForm: Boolean = true;
+  StatusButtom: string = 'Edit';
 
+  formVisibility(){
+    if(this.showForm){
+      this.showForm= false;
+      this.StatusButtom='Edit';
+    }else{
+      this.showForm= true;
+      this.StatusButtom='Save';
+    }
+  }
 }
